@@ -67,9 +67,13 @@ http {
     }
 }
 
+
+start docker:
+'''
+docker-compose up -d
 '''
 
-create network for nginx and mlflow
+create network for nginx and mlflow:
 
 '''
 docker network create mlflow_project_default
