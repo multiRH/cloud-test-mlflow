@@ -21,6 +21,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro   # Mounting nginx.conf
       - ./index.html:/usr/share/nginx/html/index.html:ro   # Mounting index.html
+      - ./test.html:/usr/share/nginx/html/index.html
     depends_on:
       - mlflow
 
