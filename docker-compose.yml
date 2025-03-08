@@ -24,3 +24,8 @@ services:
     depends_on:
       - mlflow
 
+  mlflow_app:
+    build: ./app
+    container_name: mlflow_app
+    depends_on:
+      - mlflow
