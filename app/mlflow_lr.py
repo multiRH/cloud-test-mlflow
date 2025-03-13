@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 import mlflow
 import mlflow.sklearn
 import numpy as np
@@ -6,9 +6,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+from aux_functions import generate_custom_run_name
 
 # Set MLflow tracking URI (must match MLflow server in Docker Compose)
-mlflow.set_tracking_uri("http://mlflow:5000")
+mlflow.set_tracking_uri("http://mlflow:5000") #to use inside of container
 
 # Define MLflow experiment
 mlflow.set_experiment("Linear_Regression_Experiment")
@@ -23,6 +24,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Start an MLflow run
 with mlflow.start_run():
+    custom_run_name = generate_custom_run_name()
+    mlflow.set_tag('mlflow.runName', custom_run_name)
     # Train the model
     model = LinearRegression()
     model.fit(X_train, y_train)
@@ -43,5 +46,3 @@ with mlflow.start_run():
     mlflow.sklearn.log_model(model, "linear_regression_model")
 
     print(f"Model logged in MLflow with MSE: {mse:.4f}, R2 Score: {r2:.4f}")
-
-
