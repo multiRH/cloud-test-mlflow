@@ -83,3 +83,6 @@ to check if the network exists:
 '''
 docker network inspect mlflow_project_default
 '''
+
+to delete all containers, images, volumes:
+

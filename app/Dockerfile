@@ -11,5 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the Python script into the container
 COPY mlflow_lr.py .
 
+# Copy the Python script into the container
+COPY aux_functions.py .
+
 # Run the script when the container starts
 CMD ["python", "mlflow_lr.py"]
