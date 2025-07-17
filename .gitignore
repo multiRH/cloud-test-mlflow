@@ -1,6 +1,7 @@
 # custom
 mlflow_data/
 test/
+secrets/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
